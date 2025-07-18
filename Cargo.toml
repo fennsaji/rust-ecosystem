@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "rust-basics",
+    "actix-web-api",
+    "actix-web-api/migration"
+]
+resolver = "2"
