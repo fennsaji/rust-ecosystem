@@ -2,6 +2,7 @@
 members = [
     "rust-basics",
     "actix-web-api",
-    "actix-web-api/migration"
+    "actix-web-api/migration",
+    "leet-code/two_sum"
 ]
 resolver = "2"
