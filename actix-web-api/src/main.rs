@@ -16,7 +16,7 @@
 //! - `HttpServer`: The main server that handles HTTP requests
 //! - `App`: Application factory that creates app instances per worker
 //! - `web::Data`: Shared application state (dependency injection)
-//! - Middleware: Cross-cutting concerns like logging and tracing
+//! - `Middleware`: Cross-cutting concerns like logging and tracing
 
 // Module declarations - these make the modules available to this crate
 mod db;         // Database connection management
