@@ -14,3 +14,7 @@ path = "sell_stock.rs"
 [[bin]]
 name = "two_sum"
 path = "two_sum.rs"
+
+[[bin]]
+name = "first_occurence"
+path = "first_occurence.rs"
