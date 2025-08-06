@@ -16,6 +16,25 @@ pub fn max_profit(prices: Vec<i32>) -> i32 {
     max_profit
 }
 
+fn main() {
+    let test_cases = vec![
+        (vec![7, 1, 5, 3, 6, 4], 5),
+        (vec![7, 6, 4, 3, 1], 0),
+        (vec![1], 0),
+        (vec![1, 2, 3, 4, 5], 4),
+        (vec![5, 5, 5, 5], 0),
+        (vec![1, 2, 3, 4, 5, 6], 5),
+        (vec![6, 5, 4, 3, 2, 1], 0),
+        (vec![1000, 2000, 3000, 4000, 5000], 4000),
+    ];
+
+    for (input, expected) in test_cases {
+        let result = max_profit(input.clone());
+        println!("Input: {:?} | Expected: {} | Got: {} -> {}", input, expected, result, if result == expected { "Ok" } else { "Fail" });
+        assert_eq!(result, expected);
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;   

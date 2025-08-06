@@ -1,0 +1,16 @@
+[package]
+name = "leet-code"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "is_palindrome"
+path = "is_palindrome.rs"
+
+[[bin]]
+name = "sell_stock"
+path = "sell_stock.rs"
+
+[[bin]]
+name = "two_sum"
+path = "two_sum.rs"
