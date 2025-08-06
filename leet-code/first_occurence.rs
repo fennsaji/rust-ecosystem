@@ -35,6 +35,29 @@ pub fn str_str(haystack: String, needle: String) -> i32 {
     current_index
 }
 
+pub fn str_str_v2(haystack: String, needle: String) -> i32 {
+    if needle.is_empty() {
+        return 0;
+    }
+
+    let hay = haystack.as_bytes();
+    let nee = needle.as_bytes();
+    let h_len = hay.len();
+    let n_len = nee.len();
+
+    if n_len > h_len {
+        return -1;
+    }
+
+    for i in 0..=h_len - n_len {
+        if &hay[i..i + n_len] == nee {
+            return i as i32;
+        }
+    }
+
+    -1
+}
+
 fn main() {
     let test_cases = vec![
         ("hello", "ll", 2),
@@ -45,7 +68,7 @@ fn main() {
     ];
 
     for (haystack, needle, expected) in test_cases {
-        let result = str_str(haystack.to_string(), needle.to_string());
+        let result = str_str_v2(haystack.to_string(), needle.to_string());
         println!("Haystack: \"{}\", Needle: \"{}\" | Expected: {} | Got: {} -> {}", haystack, needle, expected, result, if result == expected { "Ok" } else { "Fail" });
         assert_eq!(result, expected);
     }
