@@ -8,7 +8,8 @@
 
 
 use std::collections::HashMap;
-pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+
+fn contains_duplicate(nums: Vec<i32>) -> bool {
     let mut map: HashMap<i32, bool> = HashMap::new();;
     for n in nums {
         if let Some(val) = map.get(&n) {
@@ -17,6 +18,16 @@ pub fn contains_duplicate(nums: Vec<i32>) -> bool {
         map.insert(n, true);
     }
     false
+}
+
+fn contains_duplicate_v2(nums: Vec<i32>) -> bool {
+    let mut set = std::collections::HashSet::new();
+    for n in nums {
+        if !set.insert(n) {
+            return true; // Duplicate found
+        }
+    }
+    false // No duplicates found
 }
 
 fn main() {
