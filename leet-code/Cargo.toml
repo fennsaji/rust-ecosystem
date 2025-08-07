@@ -22,3 +22,7 @@ path = "first_occurence.rs"
 [[bin]]
 name = "contains_duplicate"
 path = "contains_duplicate.rs"
+
+[[bin]]
+name = "is_anagram"
+path = "is_anagram.rs"
