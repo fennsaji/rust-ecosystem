@@ -29,6 +29,24 @@ pub fn is_anagram(s: String, t: String) -> bool {
     true
 }
 
+pub fn is_anagram_v2(s: String, t: String) -> bool {
+    if s.len() != t.len() {
+        return false;
+    }
+    let mut char_counts = HashMap::new();
+    for char_s in s.chars() {
+        *char_counts.entry(char_s).or_insert(0) += 1;
+    }
+    for char_t in t.chars() {
+        let count = char_counts.entry(char_t).or_default();
+        if *count == 0 {
+            return false;
+        }
+        *count -= 1;
+    }
+    true
+}
+
 fn main() {
     let s = String::from("racecar");
     let t = String::from("carrace");
