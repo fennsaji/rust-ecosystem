@@ -8,19 +8,25 @@
 // Output: false
 // Constraints:
 // s and t consist of lowercase English letters.
-
- pub fn is_anagram(s: String, t: String) -> bool {
+use std::collections::HashMap;
+pub fn is_anagram(s: String, t: String) -> bool {
     if s.len() != t.len() {
         return false;
     }
-    let mut second_s = t.clone();
+    let mut s_map = HashMap::new();
+    let mut t_map = HashMap::new();
     for a in s.chars() {
-        second_s = second_s.replacen(a, "", 1);
+        *s_map.entry(a).or_insert(0) += 1;
     }
-    if second_s.is_empty() {
-        return true;
+    for a in t.chars() {
+        *t_map.entry(a).or_insert(0) += 1;
     }
-    false
+    for (key, value) in s_map {
+        if t_map.get(&key) != Some(&value) {
+            return false;
+        }
+    }
+    true
 }
 
 fn main() {
