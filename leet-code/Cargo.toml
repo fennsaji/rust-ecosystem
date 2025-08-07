@@ -18,3 +18,7 @@ path = "two_sum.rs"
 [[bin]]
 name = "first_occurence"
 path = "first_occurence.rs"
+
+[[bin]]
+name = "contains_duplicate"
+path = "contains_duplicate.rs"
