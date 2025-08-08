@@ -30,3 +30,8 @@ path = "is_anagram.rs"
 [[bin]]
 name = "min_start_value"
 path = "min_start_value.rs"
+
+[[bin]]
+name = "group_anagram"
+path = "group_anagram.rs"
+
