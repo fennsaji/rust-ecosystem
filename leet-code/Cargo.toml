@@ -35,3 +35,6 @@ path = "min_start_value.rs"
 name = "group_anagram"
 path = "group_anagram.rs"
 
+[[bin]]
+name = "valid_parentheses"
+path = "valid_parentheses.rs"
