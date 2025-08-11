@@ -7,7 +7,7 @@ pub fn search(nums: Vec<i32>, target: i32) -> i32 {
     let mut right = nums.len() - 1;
     
     while left <= right {
-        let mid = left + (right - left) / 2;
+        let mid = left + (right - left) / 2; // Solves Integer Oerflow issue
         
         if nums[mid] == target {
             return mid as i32;
