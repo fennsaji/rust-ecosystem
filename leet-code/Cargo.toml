@@ -38,3 +38,7 @@ path = "group_anagram.rs"
 [[bin]]
 name = "valid_parentheses"
 path = "valid_parentheses.rs"
+
+[[bin]]
+name = "binary_search"
+path = "binary_search.rs"
