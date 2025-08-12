@@ -46,3 +46,7 @@ path = "binary_search.rs"
 [[bin]]
 name = "reverse_linked_list"
 path = "reverse_linked_list.rs"
+
+[[bin]]
+name = "merge_two_list"
+path = "merge_two_list.rs"
