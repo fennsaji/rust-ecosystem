@@ -16,47 +16,40 @@ impl ListNode {
 }
 
 pub fn merge_two_lists(list1: Option<Box<ListNode>>, list2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-    let mut pointer1 = list1;
-    let mut pointer2 = list2;
-    let mut newlist: Option<Box<ListNode>> = None;
+    // Create a dummy head node to simplify edge cases
+    // This avoids having to handle the first node separately
+    let mut dummy = Box::new(ListNode { val: 0, next: None });
     
-    while pointer1.is_some() || pointer2.is_some() {
-        match (pointer1.clone(), pointer2.clone()) {
-            (Some(p1), Some(p2)) => {
-                if p1.val < p2.val {
-                    newlist = Some(Box::new(ListNode {
-                        val: p1.val,
-                        next: newlist,
-                    }));
-                    pointer1 = p1.next;
-                } else {
-                    newlist = Some(Box::new(ListNode {
-                        val: p2.val,
-                        next: newlist,
-                    }));
-                    pointer2 = p2.next;
-                }
-            },
-            (Some(p1), None) => {
-                newlist = Some(Box::new(ListNode {
-                    val: p1.val,
-                    next: newlist,
-                }));
-                pointer1 = p1.next;
-            },
-            (None, Some(p2)) => {
-                newlist = Some(Box::new(ListNode {
-                    val: p2.val,
-                    next: newlist,
-                }));
-                pointer2 = p2.next;
-            },
-            (None, None) => {
-                break;
-            }
+    // Keep a mutable reference to the last node in our result list
+    // This allows us to append nodes efficiently
+    let mut tail = &mut dummy;
+    
+    // Take ownership of the input lists so we can modify them
+    let mut l1 = list1;
+    let mut l2 = list2;
+    
+    // Compare and merge nodes while both lists have elements
+    while l1.is_some() && l2.is_some() {
+        // Compare the values of the current nodes
+        if l1.as_ref().unwrap().val <= l2.as_ref().unwrap().val {
+            // l1's current node is smaller or equal, so add it to result
+            tail.next = l1.take();           // Move l1's current node to result
+            tail = tail.next.as_mut().unwrap(); // Advance tail to the new last node
+            l1 = tail.next.take();           // Move l1 to its next node
+        } else {
+            // l2's current node is smaller, so add it to result
+            tail.next = l2.take();           // Move l2's current node to result
+            tail = tail.next.as_mut().unwrap(); // Advance tail to the new last node
+            l2 = tail.next.take();           // Move l2 to its next node
         }
     }
-    reverse_list(newlist)
+    
+    // Append any remaining nodes from either list
+    // Only one of l1 or l2 can have remaining elements at this point
+    tail.next = l1.or(l2);
+    
+    // Return the merged list, skipping the dummy head
+    dummy.next
 }
 
 pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
