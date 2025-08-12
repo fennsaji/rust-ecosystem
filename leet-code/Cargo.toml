@@ -42,3 +42,7 @@ path = "valid_parentheses.rs"
 [[bin]]
 name = "binary_search"
 path = "binary_search.rs"
+
+[[bin]]
+name = "reverse_linked_list"
+path = "reverse_linked_list.rs"
