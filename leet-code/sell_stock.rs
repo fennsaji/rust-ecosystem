@@ -16,6 +16,24 @@ pub fn max_profit(prices: Vec<i32>) -> i32 {
     max_profit
 }
 
+pub fn max_profit_v2(prices: Vec<i32>) -> i32 {
+    let mut l = 0;
+    let mut r = 1;
+    let mut max = 0;
+    while r < prices.len() {
+        if prices[l] < prices[r] {
+            let profit = prices[r] - prices[l];
+            if profit > max {
+                max = profit;
+            }
+        } else {
+            l = r;
+        }
+        r += 1;
+    }
+    max
+}
+
 fn main() {
     let test_cases = vec![
         (vec![7, 1, 5, 3, 6, 4], 5),
