@@ -50,3 +50,7 @@ path = "reverse_linked_list.rs"
 [[bin]]
 name = "merge_two_list"
 path = "merge_two_list.rs"
+
+[[bin]]
+name = "max_depth"
+path = "max_depth.rs"
