@@ -54,3 +54,7 @@ path = "merge_two_list.rs"
 [[bin]]
 name = "max_depth"
 path = "max_depth.rs"
+
+[[bin]]
+name = "diameter_of_tree"
+path = "diameter_of_tree.rs"
